@@ -1,0 +1,42 @@
+<app-alert *ngIf="showAlert" [color]="alertColor">{{alertMsg}}</app-alert>
+
+<!-- Registration Form -->
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+  <!-- Name -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Ad Soyad</label>
+    <app-input [control]="name" type="text" placeholder="Ad Yazınız"></app-input>
+  </div>
+  <!-- Email -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">E-Mail</label>
+    <app-input [control]="email" type="email" placeholder="EMail Yazınız"></app-input>
+  </div>
+  <!-- Password -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Şifre</label>
+   <app-input [control]="password" type="password" placeholder="Şire Yazınız"></app-input>
+  </div>
+  <!-- Confirm Password -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Şifre Tekrar</label>
+    <app-input [control]="confirm_password" type="password" placeholder="Şifreyi Tekrar Yazınız"></app-input>
+  </div>
+  <!-- Age -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Yaş</label>
+    <app-input [control]="age" type="number" placeholder="Yaşınızı Yazınız"></app-input>
+  </div>
+  <!-- Phone Number -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Telefon No <span class="text-danger-400" style="font-size: 11px!important;color: red !important;">(Başında Sıfır Olmadan Yazınız)</span></label>
+   <app-input [control]="phoneNumber" format="(000) 000 00 00" placeholder="Telefon No Yazınız"></app-input>
+  </div>
+  <button
+    type="submit"
+    class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition hover:bg-indigo-500 disabled:opacity-50 disabled:bg-indigo-400"
+    [disabled]="registerForm.invalid"
+  >
+    Submit
+  </button>
+</form>

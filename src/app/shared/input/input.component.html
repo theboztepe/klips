@@ -1,0 +1,27 @@
+<!-- [dropSpecialCharacters]="false" -->
+<input
+  [formControl]="control"
+  [type]="type"
+  class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
+  [placeholder]="placeholder"
+  [mask]="format"
+/>
+<ng-container *ngIf="control.touched && control.dirty">
+  <p *ngIf="control.errors?.pattern" class="text-red-400">
+    Geçerli bir görünüm değil
+  </p>
+  <p *ngIf="control.errors?.required" class="text-red-400">Zorunlu Alan</p>
+  <p *ngIf="control.errors?.minlength" class="text-red-400">
+    {{ control.errors?.minlength.actualLength }} karakter uzunluğunda. Minimum
+    {{ control.errors?.minlength.requiredLength }} karakter girilmelidir.
+  </p>
+  <p *ngIf="control.errors?.email" class="text-red-400">
+    Geçerli bir mail adresi giriniz.
+  </p>
+  <p *ngIf="control.errors?.min" class="text-red-400">
+    Daha büyük sayı giriniz.
+  </p>
+  <p *ngIf="control.errors?.max" class="text-red-400">
+    Daha küçük sayı giriniz.
+  </p>
+</ng-container>
