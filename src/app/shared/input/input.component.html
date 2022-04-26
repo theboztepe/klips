@@ -24,4 +24,10 @@
   <p *ngIf="control.errors?.max" class="text-red-400">
     Daha küçük sayı giriniz.
   </p>
+  <p *ngIf="control.errors?.noMatch" class="text-red-400">
+    Şifreler uyuşmuyor!
+  </p>
+  <p *ngIf="control.errors?.emailTaken" class="text-red-400">
+    EMail kullanılıyor. Başka mail adresi deneyiniz!
+  </p>
 </ng-container>

@@ -12,17 +12,24 @@
       <!-- Primary Navigation -->
       <ul class="flex flex-row mt-1">
         <!-- Navigation Links -->
-        <li>
+        <li *ngIf="!(auth.isAuthenticated$ | async); else authLinks">
           <a class="px-2" href="#" (click)="openModal($event)"
             >Giriş Yap / Kaydol</a
           >
         </li>
+       <ng-template #authLinks>
         <li>
           <a class="px-2" href="#">Yönet</a>
         </li>
         <li>
           <a class="px-2" href="#">Yükle</a>
         </li>
+        <li>
+          <a class="px-2" href="#" (click)="logout($event)">
+            Çıkış Yap
+          </a>
+        </li>
+       </ng-template>
         <li>
           <a class="px-2" href="about.html">Hakkımızda</a>
         </li>
